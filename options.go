@@ -982,12 +982,6 @@ func (opts *Options) SetUniversalCompactionOptions(value *UniversalCompactionOpt
 	C.rocksdb_options_set_universal_compaction_options(opts.c, value.c)
 }
 
-// SetFIFOCompactionOptions sets the options for FIFO compaction style.
-// Default: nil
-func (opts *Options) SetFIFOCompactionOptions(value *FIFOCompactionOptions) {
-	C.rocksdb_options_set_fifo_compaction_options(opts.c, value.c)
-}
-
 // GetStatisticsString returns the statistics as a string.
 func (opts *Options) GetStatisticsString() string {
 	sString := C.rocksdb_options_statistics_get_string(opts.c)
