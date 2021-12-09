@@ -1187,7 +1187,7 @@ func (opts *Options) SetMemTablePrefixBloomSizeRatio(value float64) {
 //
 // Default: false
 func (opts *Options) SetOptimizeFiltersForHits(value bool) {
-	C.rocksdb_options_set_optimize_filters_for_hits(opts.c, C._Bool(value))
+	C.rocksdb_options_set_optimize_filters_for_hits(opts.c, C.int(btoi(value)))
 }
 
 // Destroy deallocates the Options object.
