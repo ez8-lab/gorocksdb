@@ -1146,7 +1146,7 @@ func (opts *Options) SetBlockBasedTableFactory(value *BlockBasedTableOptions) {
 	C.rocksdb_options_set_block_based_table_factory(opts.c, value.c)
 }
 
-// SetTerarkZipTableFactory sets the terark-zip table factory.
+// SetTerarkZipTableFactory sets the terark zip table factory.
 func (opts *Options) SetTerarkZipTableFactory(tzto *TerarkZipTableOptions, bbto *BlockBasedTableOptions) {
 	opts.bbto = bbto
 	opts.tzto = tzto
