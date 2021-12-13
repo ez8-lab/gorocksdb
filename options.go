@@ -76,6 +76,7 @@ type Options struct {
 	// Hold references for GC.
 	env  *Env
 	bbto *BlockBasedTableOptions
+	tzto *TerarkZipTableOptions
 
 	// We keep these so we can free their memory in Destroy.
 	ccmp *C.rocksdb_comparator_t
@@ -1143,6 +1144,13 @@ func (opts *Options) SetCreateIfMissingColumnFamilies(value bool) {
 func (opts *Options) SetBlockBasedTableFactory(value *BlockBasedTableOptions) {
 	opts.bbto = value
 	C.rocksdb_options_set_block_based_table_factory(opts.c, value.c)
+}
+
+// SetTerarkZipTableFactory sets the terark-zip table factory.
+func (opts *Options) SetTerarkZipTableFactory(tzto *TerarkZipTableOptions, bbto *BlockBasedTableOptions) {
+	opts.bbto = bbto
+	opts.tzto = tzto
+	C.rocksdb_options_set_terark_zip_table_factory(opts.c, tzto.c, bbto.c)
 }
 
 // SetAllowIngestBehind sets allow_ingest_behind
