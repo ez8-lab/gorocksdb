@@ -1198,6 +1198,10 @@ func (opts *Options) SetOptimizeFiltersForHits(value bool) {
 	C.rocksdb_options_set_optimize_filters_for_hits(opts.c, C._Bool(value))
 }
 
+func (opts *Options) SetBlobSize(size uint64) {
+	C.rocksdb_options_set_blob_size(opts.c, C.uint64_t(size))
+}
+
 // Destroy deallocates the Options object.
 func (opts *Options) Destroy() {
 	C.rocksdb_options_destroy(opts.c)
