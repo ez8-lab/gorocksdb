@@ -3,6 +3,9 @@ package gorocksdb
 // #include "rocksdb/c.h"
 // #include "gorocksdb.h"
 import "C"
+import (
+	"unsafe"
+)
 
 // TerarkZipTableOptions represents terark-zip table options.
 type TerarkZipTableOptions struct {
